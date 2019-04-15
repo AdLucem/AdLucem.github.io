@@ -1,4 +1,8 @@
-# Neural Networks For The Non-CS Person
+---
+layout: post
+title: Neural Networks For The Non-CS Person
+date: 2018-04-12
+---
 
 This is the first of a series of posts 
 
