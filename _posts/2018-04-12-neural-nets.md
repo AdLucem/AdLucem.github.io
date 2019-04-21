@@ -1,6 +1,6 @@
 ---
 layout: post
-title: Neural Networks For The Non-CS Person
+title: Neural Nets
 date: 2018-04-12
 ---
 
