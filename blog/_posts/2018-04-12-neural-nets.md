@@ -2,6 +2,7 @@
 layout: post
 title: Neural Nets
 date: 2018-04-12
+category: blog
 ---
 
 This is the first of a series of posts 
