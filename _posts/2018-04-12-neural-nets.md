@@ -6,10 +6,6 @@ date: 2018-04-12
 
 This is the first of a series of posts 
 
-The initial motivation for this series of posts was when my mom- who has a technical background, but hasn't been in touch with CS for years- .
-
-So I realized that my mom wasn't the only one who could be helped by this- a realistic, down-to-earth explanation of machine learning concepts, aimed at people who still remember their high school math but who haven't touched code in a while, or ever- would generally be useful. So here's part 1 of Machine Learning for the Non-CS Person: on neural nets!
-
 Neural networks have generated a lot of hype and myth around them, and quite a bit of backlash to that hype and myth by programmers who work in ML.
 
 In truth, neural networks are pretty damn simple as long as you aren't doing the math yourself. Did you take any intro-level statistics courses in college? High school calculus? Basic graph theory? Then you can understand NNs.
@@ -20,11 +16,11 @@ Let's start with the founding block of a NN- a perceptron (a "neuron"). A percep
 
 To demonstrate graphically, here's a perceptron that takes in 3 inputs: i1, i2 and i3
 
-![perceptron](imgs/perceptron_illustration.jpg)
+![perceptron]({{ site.baseurl }}/imgs/perceptron_illustration.jpg)
 
 Here's a brightly colored visual depicting precisely "what" the perceptron equation does with the three inputs:
 
-![perceptron equation](imgs/perceptron_equation_3_inputs.jpg)
+![perceptron equation]({{ site.baseurl }}/imgs/perceptron_equation_3_inputs.jpg)
 
 The cool thing about a perceptron is, the linear equation that you're running the inputs through, has _coefficients_ - coefficients that don't have to stay the same, but can be changed by the program. Basically, the equation is of the form ax + by + cz + ... = 0 - your basic linear equation, with as many variables as there are inputs- and a, b, c... are the coefficients, or _parameters_ as they're called technically- which can be changed.
 
@@ -42,7 +38,7 @@ So now that we know what a perceptron is, we can easily understand what a neural
 
 A neural set is basically multiple 'layers' of perceptrons, 'stacked' on top of each other such that the output of any one perceptron in the lower layer goes to _all_ the perceptrons in the layer above it.
 
-![multilayer perceptron](imgs/mlp_illustration.jpg)
+![multilayer perceptron]({{ site.baseurl }}/imgs/mlp_illustration.jpg)
 
 (In practice, this may not always happen- there are neural net alterations like attention and dropout, that sever some of the connections between layers or skip some layers or add some layers. These are mostly domain-specific neural net alterations, and I'll get to them in a bit.)
 
