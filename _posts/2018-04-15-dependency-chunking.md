@@ -4,7 +4,7 @@ title: Aligning (Hindi) Sentence Chunks With Dependency Parsing
 date: 2018-04-15
 ---
 
-So this is a bit of an odd problem, in that it doesn't usually show up 
+So this is a bit of an odd problem, in that it doesn't usually show up in the standard leaderboard of NLP tasks.
 
 You have a sentence. You have a different sentence, with more or less the same meaning, and with similar syntactic structure, but most of your words/word groups are different. Say, "That man was sesquipedally loquacious", and "That there man, 'e was an eloquent bloviator".
 
