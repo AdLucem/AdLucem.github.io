@@ -16,7 +16,7 @@ Let's start with the founding block of a NN- a perceptron (a "neuron"). A percep
 
 To demonstrate graphically, here's a perceptron that takes in 3 inputs: i1, i2 and i3
 
-<img src="{{ site.baseurl }}/imgs/perceptron_illustration.jpg" align="left" height="500" width="2000">
+<img src="{{ site.baseurl }}/imgs/perceptron_illustration.jpg" align="left" height="1000" width="2000">
 
 Here's a brightly colored visual depicting precisely "what" the perceptron equation does with the three inputs:
 
@@ -44,10 +44,10 @@ A neural set is basically multiple 'layers' of perceptrons, 'stacked' on top of 
 
 So why all the hype around neural nets?
 
-- Neural nets can learn complex, non-linear relationships between data and classes. That is- a single perceptron performs well as long as our data is separated into neat little classes with a straight line; a neural network performs well even if the lines separating our data are complex and squiggly. Thus, NNs perform well on a lot of complex problems like "predict the next word given the previous 'n' words in the sequence as data."
-- Slightly tweaked neural networks can 'remember' previous data- Recurrent Neural Networks and LSTMs. 
-- Slightly tweaked (but in a different way) neural networks can 'reduce' complex data sequences to simpler sequences **with the important information preserved**- allowing them to, say, "reduce" an image to the important bits (lines, certain shapes, etc.)
-- And, most interestingly in NLP, we can **use the parameters that neural networks learn** to extract information about **what the neural network is learning** - **and other things too** (Word Embeddings, transfer learning)
+* Neural nets can learn complex, non-linear relationships between data and classes. That is- a single perceptron performs well as long as our data is separated into neat little classes with a straight line; a neural network performs well even if the lines separating our data are complex and squiggly. Thus, NNs perform well on a lot of complex problems like "predict the next word given the previous 'n' words in the sequence as data."
+* Slightly tweaked neural networks can 'remember' previous data- Recurrent Neural Networks and LSTMs. 
+* Slightly tweaked (but in a different way) neural networks can 'reduce' complex data sequences to simpler sequences **with the important information preserved**- allowing them to, say, "reduce" an image to the important bits (lines, certain shapes, etc.)
+* And, most interestingly in NLP, we can **use the parameters that neural networks learn** to extract information about **what the neural network is learning** - **and other things too** (Word Embeddings, transfer learning)
 
 
 
