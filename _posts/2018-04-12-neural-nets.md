@@ -16,11 +16,11 @@ Let's start with the founding block of a NN- a perceptron (a "neuron"). A percep
 
 To demonstrate graphically, here's a perceptron that takes in 3 inputs: i1, i2 and i3
 
-<img src="{{ site.baseurl }}/imgs/perceptron_illustration.jpg" align="left" height="20" width="48">
+<img src="{{ site.baseurl }}/imgs/perceptron_illustration.jpg" align="left" height="100" width="100">
 
 Here's a brightly colored visual depicting precisely "what" the perceptron equation does with the three inputs:
 
-<img src="{{ site.baseurl }}/imgs/perceptron_equation_3_inputs.jpg" align="left" height="48" width="48">
+<img src="{{ site.baseurl }}/imgs/perceptron_equation_3_inputs.jpg" align="left" height="100" width="100">
 
 The cool thing about a perceptron is, the linear equation that you're running the inputs through, has _coefficients_ - coefficients that don't have to stay the same, but can be changed by the program. Basically, the equation is of the form ax + by + cz + ... = 0 - your basic linear equation, with as many variables as there are inputs- and a, b, c... are the coefficients, or _parameters_ as they're called technically- which can be changed.
 
