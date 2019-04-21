@@ -16,7 +16,7 @@ Let's start with the founding block of a NN- a perceptron (a "neuron"). A percep
 
 To demonstrate graphically, here's a perceptron that takes in 3 inputs: i1, i2 and i3
 
-![perceptron]({{ site.baseurl }}/imgs/perceptron_illustration.jpg)
+<img src="{{ site.baseurl }}/imgs/perceptron_illustration.jpg" align="left" height="48" width="48">
 
 Here's a brightly colored visual depicting precisely "what" the perceptron equation does with the three inputs:
 
