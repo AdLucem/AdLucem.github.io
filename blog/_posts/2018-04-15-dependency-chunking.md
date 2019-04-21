@@ -2,6 +2,7 @@
 layout: post
 title: Aligning (Hindi) Sentence Chunks With Dependency Parsing
 date: 2018-04-15
+category: blog
 ---
 
 So this is a bit of an odd problem, in that it doesn't usually show up in the standard leaderboard of NLP tasks.

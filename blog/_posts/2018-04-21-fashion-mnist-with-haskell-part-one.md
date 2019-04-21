@@ -2,6 +2,7 @@
 layout: post
 title: Fashion-MNIST With Haskell, Part 1
 date: 2018-04-21
+category: blog
 ---
 
 This is a short writeup on how to use `mnist-idx` and `hasktorch` to load files from the IDX data format- used in the original MNIST as well as [fashion-MNIST](https://github.com/zalandoresearch/fashion-mnist) - into memory in Haskell, as tensors.
