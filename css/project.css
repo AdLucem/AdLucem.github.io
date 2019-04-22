@@ -72,3 +72,10 @@ ul.posts li {
     list-style: none;
 }
 
+.title {
+	font-size: 2em;
+}
+
+.desc {
+	font-size: 1em;
+}
