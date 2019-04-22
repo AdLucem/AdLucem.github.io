@@ -30,9 +30,9 @@ The cool thing about a perceptron is, the linear equation that you're running th
 
 Why do we want to change the parameters? Well, see, we want the perceptron to produce a _specific_ output- the output that we say is correct. Therefore, we don't want any random linear function in the perceptron- we want the _correct_ function, or at least as close to the correct function as we can get. And so we get the "correct" function- or in other words, the set of parameters which give us the least wrong result- by doing the following steps:
 
-(1) For a given set of inputs, letting the function guess the output.
-(2) Checking to see if the function's output is close to the actual output
-(3) If the function's output is not close to the actual output, we perform some pretty math and change the parameters of the function a little bit, so that (according to our math) the next output the function gives will be closer to the input.
+1. For a given set of inputs, letting the function guess the output.
+2. Checking to see if the function's output is close to the actual output
+3. If the function's output is not close to the actual output, we perform some pretty math and change the parameters of the function a little bit, so that (according to our math) the next output the function gives will be closer to the input.
 
 This is the "learning" step of a perceptron, simplified.
 
