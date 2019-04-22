@@ -17,11 +17,11 @@ Let's start with the founding block of a NN- a perceptron (a "neuron"). A percep
 
 To demonstrate graphically, here's a perceptron that takes in 3 inputs: i1, i2 and i3
 
-<img src="{{ site.baseurl }}/imgs/perceptron_illustration.jpg" align="left" height="1000" width="2000">
+<img src="{{ site.baseurl }}/blog/imgs/perceptron_illustration.jpg" align="left" height="1000" width="2000">
 
 Here's a brightly colored visual depicting precisely "what" the perceptron equation does with the three inputs:
 
-<img src="{{ site.baseurl }}/imgs/perceptron_equation_3_inputs.jpg" align="left" height="500" width="1000">
+<img src="{{ site.baseurl }}/blog/imgs/perceptron_equation_3_inputs.jpg" align="left" height="500" width="1000">
 
 The cool thing about a perceptron is, the linear equation that you're running the inputs through, has _coefficients_ - coefficients that don't have to stay the same, but can be changed by the program. Basically, the equation is of the form ax + by + cz + ... = 0 - your basic linear equation, with as many variables as there are inputs- and a, b, c... are the coefficients, or _parameters_ as they're called technically- which can be changed.
 
@@ -39,7 +39,7 @@ So now that we know what a perceptron is, we can easily understand what a neural
 
 A neural set is basically multiple 'layers' of perceptrons, 'stacked' on top of each other such that the output of any one perceptron in the lower layer goes to _all_ the perceptrons in the layer above it.
 
-<img src="{{ site.baseurl }}/imgs/mlp_illustration.jpg" align="left" height="500" width="1000">
+<img src="{{ site.baseurl }}/blog/imgs/mlp_illustration.jpg" align="left" height="500" width="1000">
 
 (In practice, this may not always happen- there are neural net alterations like attention and dropout, that sever some of the connections between layers or skip some layers or add some layers. These are mostly domain-specific neural net alterations, and I'll get to them in a bit.)
 
