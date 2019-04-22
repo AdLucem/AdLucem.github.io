@@ -3,6 +3,7 @@ layout: post
 title: Web Scraping Meanings From A Dictionary
 date: 2018-04-21
 category: snippets
+cssfile: post.css
 ---
 
 This is a little code snippet I made to get the meanings of a list of words from an online dictionary, using web scraping and python's `beautifulsoup` library.
