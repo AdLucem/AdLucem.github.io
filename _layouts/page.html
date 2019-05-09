@@ -1,16 +1,25 @@
 <!DOCTYPE html>
 <html>
 
+
 	<head>
 		<title>{{ page.title }}</title>
 		<!-- link to main stylesheet -->
+		<link rel="stylesheet" type="text/css" href="{{ site.baseurl }}/css/main.css">
+		<!-- link to navigation bar stylesheet -->
+		<link rel="stylesheet" type="text/css" href="{{ site.baseurl }}/css/navbar.css">
+		<!-- link to footer stylesheet -->
+		<link rel="stylesheet" type="text/css" href="{{ site.baseurl }}/css/footer.css">
+		<!-- link to page-specific stylesheet -->
 		<link rel="stylesheet" type="text/css" href="{{ site.baseurl }}/css/{{ page.cssfile }}">
 	</head>
 
+
 	<body>
 		<div id="wrap">
+
 			<nav>
-    			<ul id="navigation">
+    			<ul id="nav-list">
         			<li><a href="/">Home</a></li>
         			<li><a href="/cv">CV</a></li>
 				    <li><a href="/projects">Projects</a></li>
@@ -18,8 +27,10 @@
 				<li><a href="/snippets">Code Snippets</a></li>
     			</ul>
 			</nav>
+
 			<div class="container">
 				<article class="page">
+
 					<h1>{{ page.title }}</h1>
 
 					<div class="content">
@@ -28,12 +39,16 @@
 
 				</article>
 			</div>
+
 			<footer>
 	    		<ul>
 	        		<li><a href="mailto:ghosalatreyee@gmail.com">email</a></li>
 	        		<li><a href="https://github.com/AdLucem">github.com/AdLucem</a></li>
 				</ul>
 			</footer>
+
 		</div>
 	</body>
+
+
 </html>
