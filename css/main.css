@@ -8,6 +8,7 @@ body {
     padding: 0px;
     text-align: justify;
     position: relative;
+    background-color: #031011;
 }
 
 nav ul, footer ul {
@@ -71,10 +72,6 @@ ul.posts {
 
 ul.posts li {
     list-style: none;
-}
-
-#wrap {
-    background-color: #031011;
 }
 
 #navigation {
