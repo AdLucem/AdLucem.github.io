@@ -74,6 +74,6 @@ ul.posts li {
     list-style: none;
 }
 
-#navigation {
+#navigation li a {
     color: #DAF1DE;
 }
