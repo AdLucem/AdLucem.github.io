@@ -1,19 +1,18 @@
 ---
 layout: post
-title: Fashion-MNIST With Haskell, Part 1
-date: 2018-04-21
+title: Fashion-MNIST With Hasktorch
+date: 2019-04-21
 category: blog
 cssfile: post.css
 published: false
 ---
 
-This is a short writeup on how to use `mnist-idx` and `hasktorch` to load files from the IDX data format- used in the original MNIST as well as [fashion-MNIST](https://github.com/zalandoresearch/fashion-mnist) - into memory in Haskell, as tensors.
+This is a short writeup on using Hasktorch- a Haskell tensors and machine learning library- to  train a model to classify images from the <a href="https://github.com/zalandoresearch/fashion-mnist">fashion-MNIST</a> dataset.
 
-## Getting Hasktorch Running
+Since Haskell is a library in early development at the time of writing this, using it can be a bit tricky. See <a href="https://adlucem.github.io/blog/2019/05/10/hasktorch-using-a-haskell-library-not-in-the-package-manager.html">this post</a> for how to set things up.
 
-## Using Hasktorch In A Cabal Project
+## Loading It Into Memory
 
-The most recent work done on Hasktorch is not on the `cabal` package list as of now. If you're reading this after Hasktorch's released a stable build, then by all means use `cabal` or `stack` to install it. Else, here's a little workaround on how to connect hasktorch to your cabal project file:
+I've written a <a href="https://github.com/AdLucem/gru-encoder-decoder/blob/master/fashion-mnist/src/DataLoader.hs"> dataloader for the MNIST format </a> that uses Haskell's MNIST-IDX library to load the data from IDX files to tensors. 
 
- 
-
+##
