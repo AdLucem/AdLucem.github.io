@@ -8,7 +8,7 @@ body {
     padding: 0px;
     text-align: justify;
     position: relative;
-    background-color: #E9E9E9;
+    background-color: #202A25;
 }
 
 .container {
@@ -29,13 +29,13 @@ a:hover {
 h1 {
     font-size: 3em;
     font-family: 'Palatino', 'Helvetica';
-    color: #101010;
+    color: #9DB4C0;
 }
 
 p {
     font-size: 1.5em;
     line-height: 1.4em;
-    color: #505050;
+    color: #5C6B73;
 }
 
 ul.posts { 
