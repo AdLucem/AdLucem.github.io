@@ -1,6 +1,6 @@
 ---
 layout: post
-title: Hasktorch: Using a Haskell Library Without The Package Manager
+title: Hasktorch- Using a Haskell Library Without The Package Manager
 date: 2019-05-10
 category: blog
 cssfile: post.css
