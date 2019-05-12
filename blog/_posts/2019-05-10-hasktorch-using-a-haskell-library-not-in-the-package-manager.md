@@ -18,7 +18,7 @@ The above, however, requires a bit of work- because building Hasktorch at this s
 
 Add the following lines to your Haskell project's top-level `cabal.project` file, under the `packages:` heading:
 
-```
+```haskell
 	hasktorch/ffi/codegen/*.cabal
    
     hasktorch/ffi/types/th/*.cabal
@@ -46,7 +46,7 @@ Add the following lines to your Haskell project's top-level `cabal.project` file
 
 Run this bash script from your top-level directory- the one where your aforementioned `cabal.project` file is.
 
-```
+```bash
 #!/bin/bash
 
 git clone https://github.com/AdLucem/hasktorch.git
