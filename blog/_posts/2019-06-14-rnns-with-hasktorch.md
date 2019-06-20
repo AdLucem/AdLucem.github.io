@@ -76,7 +76,7 @@ Remember the gradient descent update equation? Well, we need to update our unrol
 
 So we need the gradient of our error function in terms of the RNN weights:
 
-<img src="{{ site.baseurl }}/blog/imgs/err_derivative_wrt_weight.png">
+<img src="{{ site.baseurl }}/blog/imgs/error_derivative_wrt_weight.png">
 
 
 But the error function is in terms of the RNN network function, not the individual weights. We could substitute the RNN function itself in place of the `RNN` term, like we do in linear regression.
