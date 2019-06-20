@@ -62,29 +62,31 @@ So, how to work out backprop over multiple timesteps?
 
 Most posts explain backprop through time as "unrolling" the RNN into a multilayer NN- with each timestep representing one layer- and each layer having the same parameters. This is simple enough in an Elman cell, where the only output of each timestep is the updated hidden state. Here, though, I'll be working out the math of it- using as an example, an elman cell that's run for three timesteps for a 3-unit sequence: 
 
-<<1.0 function composition view of elman cell>>
+<img src="{{ site.baseurl }}/blog/imgs/rnn_as_composed_functions.png">
 
-I like the function composition view of neural networks better than the block view. I also like my math equations really, *really* colourful.
+I like the function composition view of neural networks better than the block view. I also like colorful math equations- it helps me parse the components more easily.
 
-What we're trying to optimize is our error function:
+What we're trying to optimize is our loss/error function. For simplicity, we'll use MSE as our loss function here:
 
-<<error function in terms of RNN>>
+<img src="{{ site.baseurl }}/blog/imgs/err_function_in_terms_of_rnn.png">
 
 Remember the gradient descent update equation? Well, we need to update our unrolled-rnn weights in each layer according to that.
 
-<<gradient descent update equation>>
+<img src="{{ site.baseurl }}/blog/imgs/sgd_update_rule.png">
 
 So we need the gradient of our error function in terms of the RNN weights:
 
-<<dE/dW>>
+<img src="{{ site.baseurl }}/blog/imgs/err_derivative_wrt_weight.png">
 
-But the error function is in terms of the RNN itself. We could substitute the RNN function showed in 1.0, like we do in linear regression:
 
-<<linear regression error function equation>> 
+But the error function is in terms of the RNN network function, not the individual weights. We could substitute the RNN function itself in place of the `RNN` term, like we do in linear regression.
 
 But with something this large, it gets ugly. So we use the chain rule of differentiation to make it simpler. So for each weight, the derivative of the error function with respect to that particular weight works out as:
 
-<<error function derivative, chain rule>>
+<img src="{{ site.baseurl }}/blog/imgs/error_equation_chain_rule.png">
+
+This is simple to calculate for the weights in the output layer:
+
 
 Generalizing this over 'n' layers, dE/dW for any given internal layer 'n' will be:
 
