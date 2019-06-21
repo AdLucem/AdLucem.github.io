@@ -4,7 +4,7 @@ title: RNNs with Hasktorch
 date: 2019-06-14
 category: blog
 cssfile: post.css
-published: false
+published: true
 ---
 
 Credit to Adam Paszke, creator of PyTorch, for this portion of the code- it's pretty much lifted and slightly modified from [his MLP example for Hasktorch.](https://github.com/hasktorch/ffi-experimental/blob/master/examples/xor_mlp/Main.hs)
