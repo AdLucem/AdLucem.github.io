@@ -85,22 +85,28 @@ But with something this large, it gets ugly. So we use the chain rule of differe
 
 <img src="{{ site.baseurl }}/blog/imgs/error_equation_chain_rule.png">
 
-This is simple to calculate for the weights in the output layer:
+This is simple to calculate for the weights in the last timestep, i.e: the "output layer":
+
+<img src="{{ site.baseurl }}/blog/imgs/final_timestep_rnn_grad.png">
+
+Backpropagating to the middle timestep:
+
+<img src="{{ site.baseurl }}/blog/imgs/second_timestep_rnn_grad.png">
+
+So finally we reach the 'original' RNN at the first timestep- or in the unrolled version, the first layer:
+
+<img src="{{ site.baseurl }}/blog/imgs/first_timestep_rnn_grad.png">
+
+As for what each partial derivative looks like, for an elman cell:
+
+<img src="{{ site.baseurl }}/blog/imgs/elman_cell_function.png">
+
+Taking one of the parameters as example:
+
+<img src="{{ site.baseurl }}/blog/imgs/elman_cell_derivative_parameters.png">
 
 
-Generalizing this over 'n' layers, dE/dW for any given internal layer 'n' will be:
 
-<<general equation for any internal layer>>
-
-So finally we reach the 'original' RNN at the first timestep- or in the unrolled version, the first layer- and update the weights.
-
-<<updated RNN code>>
-
-Despite the entire backpropagation, though, the only updated RNN we want is the updated version at timestep zero. So we slice off the 'first' layer:
-
-<<slicing off updated RNN code>>
-
-And we have our updated RNN.
 
 
 
