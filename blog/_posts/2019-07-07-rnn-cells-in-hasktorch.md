@@ -32,11 +32,11 @@ data GRUCell = GRUCell {weight_ir :: Parameter, bias_ir :: Parameter,
 
 The thing is, a recurrent cell is basically a weighted combination of "gates"- each gate being a linear function of the form:
 
-<gate linear function.img>
+<img src="{{ site.baseurl }}/blog/imgs/linear_function_rnn.png">
 
 But with something like an LSTM, which has three gates- or even a GRU, which has only two- plus the weights that work on combining the results of the gates- writing out a recurrent cell in pure function form (i.e: only weights, inputs and the combination thereof), gets unweildy and repetitive. And well, this is Haskell, where everything is supposed to be a two-line function composed of smaller two-line functions. 
 
-Given that we already have a Linear layer type in Hasktorch, we add another type- a _NonLinear_ layer, or a layer with weights, bias and activation function. This is our type representing a Gate.
+Given that we already have a Linear layer type in Hasktorch, we add another type- a *NonLinear* layer, or a layer with weights, bias and activation function. This is our type representing a Gate.
 
 ```haskell
 data RecurrentGate = RecurrentGate {
@@ -94,6 +94,4 @@ instance RecurrentCell LSTMCell where
 
 Thus, we can represent the function for an LSTM as a combination of values returned by gates.
 
-The GRU cell is also written accordingly- and it's easier because a GRU cell is simpler than an LSTM, having only two gates and no cell memory:
-
-```haskell
+The GRU cell is also written accordingly- and it's easier because a GRU cell is simpler than an LSTM, having only two gates and no cell memory.
