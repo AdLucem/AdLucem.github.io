@@ -30,7 +30,7 @@ data GRUCell = GRUCell {weight_ir :: Parameter, bias_ir :: Parameter,
 
 ... Uh oh. 
 
-The thing is, a recurrent cell is basically a weighted combination of "gates"- each gate being a linear function of the form:
+The thing is, a recurrent cell is basically a weighted combination of "gates"- each gate being a function of the form:
 
 <img src="{{ site.baseurl }}/blog/imgs/linear_function_rnn.png">
 
