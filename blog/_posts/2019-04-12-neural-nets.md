@@ -4,6 +4,7 @@ title: Neural Nets For The Layman
 date: 2018-04-12
 category: blog
 cssfile: post.css
+published: true
 ---
 
 This is the first of a series of posts aimed at explaining neural networks to a person without a background in machine learning or computer science. 

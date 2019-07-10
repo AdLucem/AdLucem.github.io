@@ -1,6 +1,6 @@
 ---
 layout: post
-title: Quick and Dirty Prototyping: Haskell vs. Python (Also Project Manager Part 1)
+title: Quick and Dirty Prototyping in Haskell vs. Python (Also Project Manager Part 1)
 date: 2019-06-09
 category: blog
 published: true

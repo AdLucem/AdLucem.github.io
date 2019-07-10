@@ -1,6 +1,6 @@
 ---
 layout: post
-title: Project Manager Part 2: Printing In Haskell
+title: Project Manager Part 2 (Printing In Haskell)
 date: 2019-06-09
 category: blog
 published: true
