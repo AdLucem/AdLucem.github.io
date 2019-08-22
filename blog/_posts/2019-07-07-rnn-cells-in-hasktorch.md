@@ -3,7 +3,7 @@ layout: post
 title: Writing RNN Cells For Hasktorch
 date: 2019-07-07
 category: blog
-published: true
+published: false
 ---
 
 So, what's the big issue with writing an RNN cell? It's just cell weights, and a function `Cell Weights -> Input -> Previous Hidden Layer -> Output`, right?
