@@ -1,9 +1,10 @@
 ---
 layout: post
-title: Web Scraping Meanings From A Dictionary
-date: 2018-04-21
-category: snippets
+title: Web Scraping From A Dictionary
+date: 2019-04-21
+category: blog
 cssfile: post.css
+published: true
 ---
 
 This is a little code snippet I made to get the meanings of a list of words from an online dictionary, using web scraping and python's `beautifulsoup` library.
@@ -112,4 +113,4 @@ def get_from_file(fname):
 			get(word)
 ```
 
-Code for this project can be found [here](https://github.com/AdLucem/monier-api-getter)
+This little piece of code can be found [here](https://github.com/AdLucem/monier-api-getter)
