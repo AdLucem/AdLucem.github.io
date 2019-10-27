@@ -1,7 +1,4 @@
 <head>
-  {%- if site.google_analytics and jekyll.environment == 'production' -%}
-    {%- include google_analytics.html -%}
-  {%- endif -%}
   
   <!-- Robots -->
   <meta name="robots" content="{{- page.robots | default: 'index, follow' -}}" />
@@ -32,18 +29,18 @@
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <!--[if lte IE 8]><script src="{{- 'assets/js/ie/html5shiv.js' | relative_url -}}" defer></script><![endif]-->
-  <link rel="stylesheet" href="{{- 'assets/css/main.css' | relative_url -}}" />
-  <!--[if lte IE 8]><link rel="stylesheet" href="{{- 'assets/css/ie8.css' | relative_url -}}" /><![endif]-->
-  <!--[if lte IE 9]><link rel="stylesheet" href="{{- 'assets/css/ie9.css' | relative_url -}}" /><![endif]-->
+  <link rel="stylesheet" href="{{ site.url }}/jekyll-theme-prologue/assets/css/main.css" />
+  <!--[if lte IE 8]><link rel="stylesheet" href="{{ site.url }}/jekyll-theme-prologue/assets/css/ie8.css" /><![endif]-->
+  <!--[if lte IE 9]><link rel="stylesheet" href="{{ site.url }}/jekyll-theme-prologue/assets/css/ie9.css" /><![endif]-->
   <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.1.0/css/all.css">
 
   <!-- Scripts -->
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js" defer></script>
-  <script src="{{- 'assets/js/jquery.scrolly.min.js' | relative_url -}}" defer></script>
-  <script src="{{- 'assets/js/jquery.scrollzer.min.js' | relative_url -}}" defer></script>
-  <script src="{{- 'assets/js/skel.min.js' | relative_url -}}" defer></script>
-  <script src="{{- 'assets/js/util.js' | relative_url -}}" defer></script>
-  <!--[if lte IE 8]><script src="{{- 'assets/js/ie/respond.min.js' | relative_url -}}" defer></script><![endif]-->
-  <script src="{{- 'assets/js/main.js' | relative_url -}}" defer></script>
+  <script src="{{- 'jekyll-theme-prologue/assets/js/jquery.scrolly.min.js' | site.url -}}" defer></script>
+  <script src="{{- 'jekyll-theme-prologue/assets/js/jquery.scrollzer.min.js' | site.url -}}" defer></script>
+  <script src="{{- 'jekyll-theme-prologue/assets/js/skel.min.js' | site.url -}}" defer></script>
+  <script src="{{- 'jekyll-theme-prologue/assets/js/util.js' | site.url -}}" defer></script>
+  <!--[if lte IE 8]><script src="{{- 'jekyll-theme-prologue/assets/js/ie/respond.min.js' | site.url -}}" defer></script><![endif]-->
+  <script src="{{- 'jekyll-theme-prologue/assets/js/main.js' | site.url -}}" defer></script>
 
 </head>
