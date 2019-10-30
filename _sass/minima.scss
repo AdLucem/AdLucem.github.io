@@ -44,13 +44,3 @@ $on-large:         $on-laptop !default;
   }
 }
 
-@mixin relative-font-size($ratio) {
-  font-size: $base-font-size * $ratio;
-}
-
-// Import partials.
-@import
-  "minima/base",
-  "minima/layout",
-  "minima/syntax-highlighting"
-;

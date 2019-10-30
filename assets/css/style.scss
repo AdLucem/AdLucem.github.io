@@ -4,37 +4,3 @@
 
 @import "minima";
 
-
-.container-lg.px-3.my-5.markdown-body {
-  margin: auto;
-}
-
-main.page-content {
-    width: auto;
-    align-content: center;
-    padding-left: 100px;
-    padding-right: 100px;
-    padding-top: 30px;
-}
-
-.wrapper {
-
-    margin-right: auto;
-    margin-left: auto;
-    padding-right: 30px;
-    padding-left: 30px;
-
-}
-
-.card {
- float: inline-start;
- width: auto;
- margin: 20px;
- padding-left: 20px;
- padding-right: 20px;
- background: $grey-color-light;
-}
-
-.card-content {
-  margin: 20px;
-}
