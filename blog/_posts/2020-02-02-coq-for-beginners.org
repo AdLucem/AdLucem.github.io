@@ -1,0 +1,339 @@
+#+TITLE: Coq Proofs For Beginners
+#+AUTHOR: kw
+
+Thus I've noted down my step-by-step solving of the exercises in the textbook *Software Foundations Part 1: Logical Foundations*, in the first chapter, to help myself- and hopefully, others who haven't spent a lot of time delving into mathematics- understand the process behind writing proofs in a theorem prover.
+
+* mult_S_1
+
+Principle: You can also use =rewrite -> <previously proven theorem title>= as a tactic.
+
+Here's how I start writing it:
+
+#+BEGIN_SRC coq
+Theorem mult_S_1 : forall n m : nat,
+  m = S n ->
+  m * (1 + n) = m * m.
+Proof.
+  intros n m.
+> intros H.
+#+END_SRC
+
+The state at this point is:
+
+#+BEGIN_SRC 
+  n, m : nat
+  ============================
+  m = S n -> m * (1 + n) = m * m
+#+END_SRC
+
+Okay, so we got the hypothesis moved into the context. Now, if you take =m = S n= and put it down on paper and try to prove this theorem, you'll see that =S n = n + 1= is one of the most intuitive replacements. 
+
+Remember =plus_1_l= from earlier that proved this? Rewrite using that:
+
+#+BEGIN_SRC coq
+Theorem mult_S_1 : forall n m : nat,
+  m = S n ->
+  m * (1 + n) = m * m.
+Proof.
+  intros n m.
+  intros H.
+  rewrite -> plus_1_l.
+#+END_SRC
+
+#+BEGIN_SRC 
+  n, m : nat
+  H : m = S n
+  ============================
+  m * S n = m * m
+#+END_SRC
+
+And at this point we can rewrite this subgoal using the hypothesis, and we get a subgoal that can be proved by reflexivity.
+
+#+BEGIN_SRC coq
+Theorem mult_S_1 : forall n m : nat,
+  m = S n ->
+  m * (1 + n) = m * m.
+Proof.
+  intros n m.
+  intros H.
+  rewrite -> plus_1_l.
+  rewrite -> H.
+  reflexivity.
+Qed.
+#+END_SRC
+* andb_true_elim2
+
+Principle: you can divide a variable into the subcases of its type by using =destruct=, so keep destructing.
+Tips: use C-c C-ENTER at every =destruct= to have Coq show you the subgoals.
+
+#+BEGIN_SRC coq
+Theorem andb_true_elim2 : forall b c : bool,
+  andb b c = true -> c = true.
+Proof.
+  intros b c.
+  destruct b.
+  - simpl.
+    intros H.
+    rewrite -> H.
+    reflexivity.
+  - destruct c.
+    + reflexivity.
+    + simpl.
+      intros H.
+      rewrite -> H.
+      reflexivity.
+#+END_SRC
+
+See how I divide =b= into subgoals. At the beginning of the second bullet (beginning of line 10 in the codeblock above), coq helpfully tells me the second subgoal:
+
+#+BEGIN_SRC 
+  c : bool
+  ============================
+  false && c = true -> c = true
+#+END_SRC
+
+Which has a =c= in it. And =c=, as a boolean, has two cases. So I know to destruct =c= within this subgoal.
+* zero_nbeq_plus_1 (Proof Solving By Cargo Cult)
+
+I'll be honest, this proof was done by trial-and-error. I don't, at the time of writing (because I wrote this right after doing the proof) know how the tactics correspond to parts of the proof. Here's how I solved it:
+
+#+BEGIN_SRC coq
+Theorem zero_nbeq_plus_1 : forall n : nat,
+          beq_nat 0 (n + 1) = false.
+Proof.
+  intros n.
+> destruct n.
+#+END_SRC 
+
+#+BEGIN_SRC 
+2 subgoals (ID 187)
+  
+  ============================
+  beq_nat 0 (0 + 1) = false
+
+subgoal 2 (ID 189) is:
+ beq_nat 0 (S n + 1) = false
+#+END_SRC
+
+So the first subgoal is pretty intuitively solved by simplifying...
+
+#+BEGIN_SRC coq
+Theorem zero_nbeq_plus_1 : forall n : nat,
+          beq_nat 0 (n + 1) = false.
+Proof.
+  intros n.
+  destruct n.
+  - simpl.
+#+END_SRC
+
+#+BEGIN_SRC 
+1 subgoal (ID 193)
+  
+  ============================
+  false = false
+#+END_SRC
+
+Aaaaand reflexivity. All right. On to the second subgoal:
+
+#+BEGIN_SRC 
+1 subgoal (ID 189)
+  
+  n : nat
+  ============================
+  beq_nat 0 (S n + 1) = false
+#+END_SRC
+
+Ah. Um... let's try a =simpl.=
+
+#+BEGIN_SRC
+1 subgoal (ID 198)
+  
+  n : nat
+  ============================
+  false = false
+#+END_SRC
+
+Oh. I have no idea how that happened (I'm lying- /now/ I do but then I didn't)- but =reflexivity.= Yay!
+
+#+BEGIN_SRC coq
+Theorem zero_nbeq_plus_1 : forall n : nat,
+          beq_nat 0 (n + 1) = false.
+Proof.
+  intros n.
+  destruct n.
+  - simpl.
+    reflexivity.
+  - simpl.
+    reflexivity.
+Qed.
+#+END_SRC
+
+Cargo cult Coq: you can do it too!
+* identity_fn_applied_twice
+
+Coq beautifully reduces that scary three-line theorem on writing =intros f H b.= i.e: introducing the first variable, hypothesis and second variable from the scary theorem definition into the context.
+
+#+BEGIN_SRC
+  f : bool -> bool
+  H : forall x : bool, f x = x
+  b : bool
+  ============================
+  f (f b) = b
+#+END_SRC
+
+Rewriting the goal using H:
+
+#+BEGIN_SRC 
+  f : bool -> bool
+  H : forall x : bool, f x = x
+  b : bool
+  ============================
+  f b = b
+#+END_SRC
+
+This once again looks like the LHS of the equation H, so rewriting again:
+
+#+BEGIN_SRC 
+  f : bool -> bool
+  H : forall x : bool, f x = x
+  b : bool
+  ============================
+  b = b
+#+END_SRC
+
+Aaaaaand reflexivity.
+
+#+BEGIN_SRC coq
+Theorem identity_fn_applied_twice :
+  forall (f : bool -> bool),
+  (forall (x : bool), f x = x) ->
+  forall (b : bool), f (f b) = b.
+Proof.
+  intros f H b.
+  rewrite -> H.
+  rewrite -> H.
+  reflexivity.
+Qed.
+#+END_SRC
+
+** #JustCoqThings
+
+Now things get weird. I try =destruct f.= for kicks and:
+
+#+BEGIN_SRC 
+2 subgoals (ID 198)
+  
+  f : bool -> bool
+  H : forall x : bool, f x = x
+  b : bool
+  ============================
+  true = b
+
+subgoal 2 (ID 199) is:
+ false = b
+#+END_SRC 
+
+It seems that Coq destructs a function in terms of its possible return values. 
+
+* negation_fn_applied_twice
+
+Oh dear. We have to state the theorem first. It's the same as the above exercise, except that the second line/second hypothesis goes =(forall (x : bool), f x = negb x)=. In writing this, we can tell that somewhere within this proof will be the subgoal =negb (negb b) = b)=.
+
+Here, after two =rewrite -> H.=, we get:
+
+#+BEGIN_SRC 
+1 subgoal (ID 197)
+  
+  f : bool -> bool
+  H : forall x : bool, f x = negb x
+  b : bool
+  ============================
+  negb (negb b) = b
+#+END_SRC
+
+Since =b= is the only variable here, and it is a boolean, we can prove this by =destruct b.= into its component cases. Proving the subgoals is trivial- simplify and then prove by reflexivity.
+
+#+BEGIN_SRC coq
+Theorem negation_fn_applied_twice :
+  forall (f : bool -> bool),
+    (forall (x : bool), f x = negb x) ->
+    forall (b : bool), f (f b) = b.
+Proof.
+  intros f H b.
+  rewrite -> H.
+  rewrite -> H.
+  destruct b.
+  - simpl.
+    reflexivity.
+  - simpl.
+    reflexivity.
+Qed.
+#+END_SRC
+
+* andb_eq_orb
+
+This proof is a little odd. Begin by introducing only the first two variables, as per the hint:
+
+#+BEGIN_SRC 
+1 subgoal (ID 215)
+  
+  b, c : bool
+  ============================
+  b && c = b || c -> b = c
+#+END_SRC
+
+=b= is the first boolean in the goal, so =destruct= it and:
+
+#+BEGIN_SRC 
+2 subgoals (ID 219)
+  
+  c : bool
+  ============================
+  true && c = true || c -> true = c
+
+subgoal 2 (ID 220) is:
+ false && c = false || c -> false = c
+#+END_SRC
+
+Now, the first subgoal requires knowledge of =andb= and =orb= to figure out that if =true && c = true || c=, then =c= can only be =true=. We introduce that knowledge by =compute=:
+
+#+BEGIN_SRC coq
+Theorem andb_eq_orb :
+  forall (b c : bool),
+  (andb b c = orb b c) ->
+  b = c.
+Proof.
+  intros b c.
+  destruct b.
+> - compute.
+#+END_SRC
+
+#+BEGIN_SRC 
+1 subgoal (ID 223)
+  
+  c : bool
+  H : c = true
+  ============================
+  true = c
+#+END_SRC
+
+Now we can =intros H.=, =rewrite= the goal using =H=, and we get a subgoal that can be proved by =reflexivity=. The second subgoal is also proved in the same fashion.
+
+#+BEGIN_SRC coq
+Theorem andb_eq_orb :
+  forall (b c : bool),
+  (andb b c = orb b c) ->
+  b = c.
+Proof.
+  intros b c.
+  destruct b.
+  - compute. 
+    intros H.
+    rewrite -> H.
+    reflexivity.
+  - compute.
+    intros H.
+    rewrite -> H.
+    reflexivity.
+Qed.
+#+END_SRC
