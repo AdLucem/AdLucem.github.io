@@ -1,63 +1,23 @@
 ---
-layout: post
-title: Curriculum Vitae
+layout: default
+title: Work Experience
+category: work
+cssfile: work.css
 ---
 
-<h2> Education </h2>
+<h1>{{ page.title }}</h1>
 
-<p> 
-	<b> Current : </b> 
-	<br />
-	Dual Degree in CS and Computational Linguistics
-	<br />
-	International Institute of Information Technology, Hyderabad, India
-</p>
+	<p>The "profit" part of "for fun and profit".</p>
 
-<h2> Key Projects </h2>
+	<ul class="posts">
 
-<h3> GRU Implementation </h3>
-
-<p> Implementation of a Gated Recurrent Cell in both Haskell and Python. Part of a larger set of open-source contributions to dataHaskell and Hasktorch- functional data science libraries. <a href="https://github.com/AdLucem/gru-encoder-decoder.git"> Link </a> </p>
-
-
-<h3> NER for Chemical Domain </h3>
-
-	</ul>
-		<li> A rule-mining system (written in Haskell) to infer human-interpretable rules from a POS-tagged training corpus. <a href="https://github.com/AdLucem/rule-inference-code.git"> Link </a> </li>
-
-		<li> Using rules returned by the rule mining system, implementation of a Named Entity Recognition system for chemical research papers/documents. </li>
-	</ul>	
-
-<h2> Experience </h2>
-
-<h3> L-3 Communications India </h3>
-
-	<p> <i> May 2018 - July 2018 </i> </p>
-
-	<ul>
-		<li> Developed a semantic search engine for manuals for L-3's IPMS software. </li>
-		<li> Built a module to take rough pdf data and convert it to a title-indexed set of documents. <a href="https://github.com/AdLucem/pdf_parser"> Link </a> </li>
-		<li> Built a custom search algorithm using word vectors and dependency parsing, that ranks the 'importance' of a word in a given sentence.</li>
-	</ul>
-
-
-<h3> Virtual Labs, IIIT Hyderabad </h3>	
-
-	<p> <i> June 2017 - July 2017 </i> </p>
-
-	<ul>
-		<li> Research Assistant: did a comparative study of Python and Haskell as languages. </li>
-		<li> Built a basic web application in Haskell, mimicing the architecture of a Python webapp. </li>
-		<li> Studied software metrics and applied metrics like SLOC and Cyclomatic Complexity to both the webapps. </li>
-		<li> <a href="https://github.com/vlead/web-app-haskell.git"> Link </a> </li>
-	</ul>
-
-<h2> Key Skills </h2>
-
-	<ul>
-		<li> <b> Proficient In: </b> Python, C, C++, Haskell, Javascript, HTML, CSS, SQL </li>
-		<li> <b> Basic Knowledge Of: </b> Elm, Java, Ruby, eLisp, Assembly (MIPS) </li>
-		<li> <b> Web Frameworks: </b> Flask, node.js, Yesod (Haskell), Servant (Haskell) </li>
-		<li> <b> Servers: </b> Apache, Nginx </li>
-		<li> <b> Other Softwares: </b> OpenGL and WebGL (graphics), Pytorch and Tensorflow (Machine Learning), ATen, spaCy (NLP), Apache OpenNLP </li>
+	  {% for post in site.posts %}
+	  	{% if post.categories contains 'work' %}
+	    <li>
+		    <a class="title" href="{{ post. }}" title="{{ post.title }}">{{ post.title }}</a>
+		    <br/>
+	    	<p class="desc">{{ post.contents }}</p> 
+	    </li>
+	    {% endif %}
+	  {% endfor %}
 	</ul>
