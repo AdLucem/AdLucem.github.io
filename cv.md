@@ -1,5 +1,5 @@
 ---
-layout: inner
+layout: post
 title: CV
 permalink: /cv/
 ---
