@@ -10,6 +10,8 @@ I work on building safe, trustworthy and human-aligned AI systems. My current fo
 
 ## Publications
 
+- Atreya Ghosal, Ashim Gupta, and Vivek Srikumar. [Unequal Voices: How LLMs Construct Constrained Queer Narratives.](https://arxiv.org/abs/2507.15585) Preprint, arXiv, July 21, 2025
+
 - Fateme Hashemi Chaleshtori, Atreya Ghosal, Alexander Gill, Purbid Bambroo, and Ana Marasović. 2024. [On Evaluating Explanation Utility for Human-AI Decision Making in NLP.](https://aclanthology.org/2024.findings-emnlp.439/) In Yaser Al-Onaizan, Mohit Bansal, and Yun-Nung Chen, editors, _Findings of the Association for Computational Linguistics: EMNLP 2024_, pages 7456–7504, Miami, Florida, USA, November. Association for Computational Linguistics.
 
 - Fateme Hashemi Chaleshtori, Atreya Ghosal, and Ana Marasović. 2023. [On Evaluating Explanation Utility for Human-AI Decision-Making in NLP.](https://openreview.net/forum?id=8BR8EaWNTZ) In _XAI in Action: Past, Present, and Future Applications_. 
