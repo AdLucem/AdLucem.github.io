@@ -1,40 +1,186 @@
+// A Material state layer: the on-colour laid over a component at a fixed
+// opacity, rather than swapping the component's colour.
+=state($alpha)
+  background-image: linear-gradient(rgba(var(--state), $alpha), rgba(var(--state), $alpha))
+
+// Skip link -- first in the tab order, off screen until focused.
+.skip
+  position: absolute
+  left: -9999px
+  top: 0
+  z-index: 10
+  background: var(--primary-container)
+  color: var(--on-primary-container)
+  font-size: .875rem
+  font-weight: 500
+  padding: .625rem 1.125rem
+  border-radius: $shape-full
+
+.skip:focus
+  left: 1rem
+  top: 1rem
+
+// App bar
 .title
-  font-family: $display-family
-  font-size: 1.25em
+  font-size: 1.375rem
+  line-height: 1.27
+  color: var(--on-surface)
+  padding: .5rem
 
-.more
-  margin: 2em 0 1em
+.iconbtn
+  width: 3rem
+  height: 3rem
+  border-radius: $shape-full
+  display: inline-flex
+  align-items: center
+  justify-content: center
+  color: var(--on-surface-variant)
 
-.more a
-  border-radius: 2px
-  border: 1.5px solid $link-color
-  padding: .4em .8em
-  transition: .2s background, .2s color
+.iconbtn:hover
+  +state(.08)
 
-.more a:hover
-  color: #fff
-  background: $link-color
-  text-decoration: inherit
+// Tabs
+body > nav a
+  position: relative
+  display: inline-flex
+  align-items: center
+  justify-content: center
+  min-width: 5.625rem
+  height: $tabs
+  padding: 0 1rem
+  font-size: .875rem
+  font-weight: 500
+  letter-spacing: .1px
+  color: var(--on-surface-variant)
 
+body > nav a:hover
+  +state(.08)
+
+body > nav a.selected
+  color: var(--primary)
+
+body > nav a.selected::after
+  content: ''
+  position: absolute
+  left: 50%
+  transform: translateX(-50%)
+  bottom: 0
+  width: 3.5rem
+  height: 3px
+  border-radius: 3px 3px 0 0
+  background: var(--primary)
+
+// Buttons
+.btn
+  display: inline-flex
+  align-items: center
+  justify-content: center
+  gap: .5rem
+  height: 2.5rem
+  padding: 0 1.5rem
+  border-radius: $shape-full
+  font-size: .875rem
+  font-weight: 500
+  letter-spacing: .1px
+  color: var(--primary)
+  background: none
+  border: 0
+  cursor: pointer
+
+.btn:hover
+  +state(.08)
+
+.btn-tonal
+  background: var(--secondary-container)
+  color: var(--on-secondary-container)
+
+.btn-text
+  padding: 0 .75rem
+
+.btn-outlined
+  box-shadow: inset 0 0 0 1px var(--outline)
+
+// Post cards
+.cards
+  list-style: none
+  margin: 0
+  padding: 0
+  display: flex
+  flex-direction: column
+  gap: 1rem
+
+.card
+  border: 1px solid var(--outline)
+  border-radius: $shape-md
+  padding: 1.5rem
+
+.card h2, .card h3
+  font-size: 1.375rem
+  line-height: 1.27
+  margin: 0 0 .75rem
+
+.card > :last-child
+  margin-bottom: 0
+
+.meta
+  font-size: .75rem
+  font-weight: 500
+  letter-spacing: .5px
+  text-transform: uppercase
+  color: var(--on-surface-variant)
+  margin: 0 0 .5rem
+
+.intro
+  color: var(--on-surface-variant)
+
+.subhead
+  font-size: .875rem
+  font-weight: 500
+  letter-spacing: .1px
+  text-transform: uppercase
+  color: var(--on-surface-variant)
+  margin: 2rem 0 .75rem
+
+.actions
+  display: flex
+  flex-wrap: wrap
+  gap: .25rem
+  margin: 1.25rem 0 0
+
+.actions-inline
+  margin-left: -.75rem
+
+// Archive list
 .archive
-  font-size: 1.1em
+  list-style: none
+  margin: 0
+  padding: 0
+
+.archive li
+  display: flex
+  align-items: baseline
+  gap: 1.25rem
+  padding: 1rem 0
+  border-top: 1px solid var(--outline-variant)
+  margin: 0
+
+.archive li:last-child
+  border-bottom: 1px solid var(--outline-variant)
 
 .archive time
-  display: inline-block
-  min-width: 10ch
-  min-height: 1.75em
-  margin: 0 .2em
+  flex-shrink: 0
+  min-width: 7rem
+  font-size: .75rem
+  font-weight: 500
+  letter-spacing: .5px
+  text-transform: uppercase
+  color: var(--on-surface-variant)
 
 .icon
-  height: 1em
-  width: 1em
+  height: 1.125rem
+  width: 1.125rem
   fill: currentColor
-  transition: .2s color
-  vertical-align: middle
-  margin-bottom: .15em
-
-a:hover .icon
-  color: reduce(100)
+  flex-shrink: 0
 
 .full table
   display: table
@@ -47,95 +193,36 @@ a:hover .icon
 .rouge-table
   &, th, td, tr, pre
     font-size: inherit
-    background: inherit !important
-    box-shadow: none
-    width: initial
-    margin: 0
+    background: inherit
+    border: 0
     padding: 0
+    margin: 0
+    width: initial
   .gl pre
     margin: 0 1.5em 0 .25em
-    opacity: .5
+    color: var(--code-fg)
+    opacity: .6
 
-.highlight // https://github.com/richleland/pygments-css/blob/master/monokai.css <http://unlicense.org>
-  pre
-    background: rgba(lighten($dark, 6%), 0.9)
-    color: white
-  .c
-    color: #a29f90
+// Syntax colours, re-picked so every token clears 4.5:1 on --code-bg in both
+// schemes. Monokai's defaults do not: its pink sits at 4.2:1.
+.highlight
+  .c, .cm, .cp, .c1, .cs, .gu
+    color: #A8ADB8
+  .k, .kn, .o, .ow, .nt, .gd
+    color: #FFA6C9
+  .kc, .kd, .kp, .kr, .kt, .no
+    color: #9FD4FF
+  .na, .nc, .nd, .ne, .nf, .nx, .gi
+    color: #B6E36B
+  .s, .s1, .s2, .sb, .sc, .sd, .se, .sh, .si, .sx, .sr, .ss, .ld
+    color: #EBD87A
+  .m, .mf, .mh, .mi, .mo, .il, .l
+    color: #D3BBFF
+  .n, .p, .nb, .ni, .nl, .nn, .nv, .py, .w, .bp, .vc, .vg, .vi
+    color: var(--code-fg)
   .err
-    color: #960050
-    background-color: #1e0010
-  .k
-    color: #66d9ef
-  .l
-    color: #ae81ff
-  .n
-    color: #f8f8f2
-  .o
-    color: #f92672
-  .p
-    color: #f8f8f2
-  .cm, .cp, .c1, .cs
-    color: #75715e
+    color: #FFB4AB
   .ge
     font-style: italic
   .gs
-    font-weight: bold
-  .kc, .kd
-    color: #66d9ef
-  .kn
-    color: #f92672
-  .kp, .kr, .kt
-    color: #66d9ef
-  .ld
-    color: #e6db74
-  .m
-    color: #ae81ff
-  .s
-    color: #e6db74
-  .na
-    color: #a6e22e
-  .nb
-    color: #f8f8f2
-  .nc
-    color: #a6e22e
-  .no
-    color: #66d9ef
-  .nd
-    color: #a6e22e
-  .ni
-    color: #f8f8f2
-  .ne, .nf
-    color: #a6e22e
-  .nl, .nn
-    color: #f8f8f2
-  .nx
-    color: #a6e22e
-  .py
-    color: #f8f8f2
-  .nt
-    color: #f92672
-  .nv
-    color: #f8f8f2
-  .ow
-    color: #f92672
-  .w
-    color: #f8f8f2
-  .mf, .mh, .mi, .mo
-    color: #ae81ff
-  .sb, .sc, .sd, .s2
-    color: #e6db74
-  .se
-    color: #ae81ff
-  .sh, .si, .sx, .sr, .s1, .ss
-    color: #e6db74
-  .bp, .vc, .vg, .vi
-    color: #f8f8f2
-  .il
-    color: #ae81ff
-  .gu
-    color: #75715e
-  .gd
-    color: #f92672
-  .gi
-    color: #a6e22e
+    font-weight: 500

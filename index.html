@@ -3,8 +3,29 @@ layout: default
 title: "Home"
 ---
 
-{% if site.show_excerpts %}
-  {% include home.html %}
-{% else %}
-  {% include archive.html title="Posts" %}
-{% endif %}
+<article>
+  <h1>{{ site.title }}</h1>
+  {% if site.intro %}<p class="intro">{{ site.intro }}</p>{% endif %}
+
+  <p class="actions actions-inline">
+    {%- for item in site.navigation -%}
+      {%- unless item.file == "index.html" -%}
+        {%- assign node = site.pages | where: "name", item.file | first -%}
+        <a class="btn btn-text" href="{{ item.url | default: node.url | relative_url }}">{{ item.title | default: node.title }}</a>
+      {%- endunless -%}
+    {%- endfor -%}
+  </p>
+
+  <h2 class="subhead">Recent writing</h2>
+
+  {% if site.show_excerpts %}
+    {% include home.html %}
+  {% else %}
+    {% include archive.html title="Posts" %}
+  {% endif %}
+
+  {%- assign archive_page = site.pages | where: "name", "archive.html" | first -%}
+  {% if archive_page %}
+  <p class="actions actions-inline"><a class="btn btn-text" href="{{ archive_page.url | relative_url }}">All posts</a></p>
+  {% endif %}
+</article>

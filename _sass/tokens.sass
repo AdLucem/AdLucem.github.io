@@ -1,0 +1,47 @@
+// The roles become custom properties so the dark scheme is one media query
+// rather than a second copy of every rule.
+
+\:root
+  --surface: #{$l-surface}
+  --surface-low: #{$l-surface-low}
+  --surface-container: #{$l-surface-container}
+  --surface-high: #{$l-surface-high}
+  --on-surface: #{$l-on-surface}
+  --on-surface-variant: #{$l-on-surface-variant}
+  --outline: #{$l-outline}
+  --outline-variant: #{$l-outline-variant}
+  --primary: #{$l-primary}
+  --on-primary: #{$l-on-primary}
+  --primary-container: #{$l-primary-container}
+  --on-primary-container: #{$l-on-primary-container}
+  --secondary-container: #{$l-secondary-container}
+  --on-secondary-container: #{$l-on-secondary-container}
+  --visited: #{$l-visited}
+  --error: #{$l-error}
+  --code-bg: #{$l-code-bg}
+  --code-fg: #{$l-code-fg}
+  --state: #{$l-state}
+  color-scheme: light
+
+@media (prefers-color-scheme: dark)
+  \:root
+    --surface: #{$d-surface}
+    --surface-low: #{$d-surface-low}
+    --surface-container: #{$d-surface-container}
+    --surface-high: #{$d-surface-high}
+    --on-surface: #{$d-on-surface}
+    --on-surface-variant: #{$d-on-surface-variant}
+    --outline: #{$d-outline}
+    --outline-variant: #{$d-outline-variant}
+    --primary: #{$d-primary}
+    --on-primary: #{$d-on-primary}
+    --primary-container: #{$d-primary-container}
+    --on-primary-container: #{$d-on-primary-container}
+    --secondary-container: #{$d-secondary-container}
+    --on-secondary-container: #{$d-on-secondary-container}
+    --visited: #{$d-visited}
+    --error: #{$d-error}
+    --code-bg: #{$d-code-bg}
+    --code-fg: #{$d-code-fg}
+    --state: #{$d-state}
+    color-scheme: dark

@@ -1,7 +1,6 @@
 ---
 layout: default
 ---
-
 <article>
   {% include meta.html post=page %}
   {{ content }}
@@ -11,4 +10,7 @@ layout: default
     {% if site.comments.disqus_shortname %}<div id="disqus_thread"></div>{% endif %}
     <noscript>Please enable JavaScript to view comments.</noscript>
   {% endif %}
+  <nav class="actions actions-inline" aria-label="Post">
+    <a class="btn btn-text" href="{{ "/" | relative_url }}">All posts</a>
+  </nav>
 </article>
