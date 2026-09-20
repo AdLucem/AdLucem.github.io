@@ -1,0 +1,8 @@
+<nav aria-label="Elsewhere">
+{%- for item in site.external -%}
+  <a class="btn btn-text" href="{{ item.url }}">
+    {%- if item.icon -%}<svg class="icon" aria-hidden="true" focusable="false"><use xlink:href="{{ "/assets/fontawesome/icons.svg" | relative_url }}#{{ item.icon }}"></use></svg>{%- endif -%}
+    <span>{{ item.title }}</span>
+  </a>
+{%- endfor -%}
+</nav>

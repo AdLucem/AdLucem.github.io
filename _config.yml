@@ -1,16 +1,15 @@
 title: Atreya Ghosal
-description: "Made with <b style=\"color: #f45;\">&lt;3</b>"
+description: "Made with <b style=\"color: var(--error);\">&lt;3</b>"
 permalink: /:title/
 lang: "en"
 excerpt_separator: "\n\n\n"
 date_format: "%B %d, %Y"
 
+intro: "PhD researcher with the UtahNLP group at the University of Utah. I work on safe, trustworthy and human-aligned AI, currently on aligning language models to broad, narrative-level value systems."
+
 # Layout
 
 show_excerpts: true        # show article excerpts on the home page
-show_frame: true           # adds a gray frame to the site
-show_sidebar: false        # show a sidebar instead of the usual header
-minimal: false             # use a dark header
 
 # Menu
 
@@ -20,8 +19,8 @@ navigation:                # accepts {file, title, url, icon, sidebaricon}
   - {file: "cv.md"}
 
 external:                  # shows a footer with social links - for available icons see fontawesome.com/icons
-  - {title: Mail, icon: envelope, url: "mailto:atreya.ghosal@utah.edu"}
-  - {title: Github, icon: github, url: "https://github.com/AdLucem"}
+  - {title: Email, icon: envelope, url: "mailto:atreya.ghosal@utah.edu"}
+  - {title: GitHub, icon: github, url: "https://github.com/AdLucem"}
 
 comments:
 #  disqus_shortname: ""    # see https://disqus.com/

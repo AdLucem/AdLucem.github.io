@@ -1,11 +1,63 @@
-$font-size: calc(0.8rem + 0.2vw) !default
-$font-weight: 400 !default
-$font-family: "PT Sans", -apple-system, "Helvetica Neue", "Segoe UI", "Roboto", sans-serif !default
-$heading-weight: 600 !default
-$line-height: 1.6 !default
-$link-color: #68f !default
-$dark: #212228 !default
-$light: #ffffff !default
+// Material 3 colour roles on a cool neutral, plus the type and layout scale.
+// Every value here is overridable; nothing below this file hard-codes a colour.
 
-@function reduce ($percent)
-  @return rgba(mix($dark, $light), $percent / 100)
+// Type
+$font-family: Roboto, system-ui, -apple-system, "Segoe UI", sans-serif !default
+$mono-family: "Roboto Mono", ui-monospace, SFMono-Regular, Menlo, monospace !default
+$font-size: calc(1rem + 0.15vw) !default
+$line-height: 1.6 !default
+
+// Layout
+$measure: 45rem !default          // ~720px reading column
+$gutter: 1.5rem !default
+$app-bar: 4rem !default
+$tabs: 3rem !default
+
+// Shape (M3 scale)
+$shape-xs: 4px !default
+$shape-sm: 8px !default
+$shape-md: 12px !default
+$shape-lg: 16px !default
+$shape-full: 9999px !default
+
+// Colour roles - light
+$l-surface: #FAFAFD !default
+$l-surface-low: #F4F5F9 !default
+$l-surface-container: #EEF0F5 !default
+$l-surface-high: #E8EAF0 !default
+$l-on-surface: #1A1B1F !default
+$l-on-surface-variant: #44474F !default
+$l-outline: #74777F !default
+$l-outline-variant: #C4C6D0 !default
+$l-primary: #3B5F8F !default
+$l-on-primary: #FFFFFF !default
+$l-primary-container: #D6E3FF !default
+$l-on-primary-container: #001B3D !default
+$l-secondary-container: #D8E3F8 !default
+$l-on-secondary-container: #111C2B !default
+$l-visited: #6B4E8A !default
+$l-error: #BA1A1A !default
+$l-code-bg: #1E2027 !default
+$l-code-fg: #E3E2E9 !default
+$l-state: 26, 27, 31 !default      // on-surface, for state layers
+
+// Colour roles - dark
+$d-surface: #111318 !default
+$d-surface-low: #1A1C21 !default
+$d-surface-container: #1E2027 !default
+$d-surface-high: #292B32 !default
+$d-on-surface: #E3E2E9 !default
+$d-on-surface-variant: #C4C6D0 !default
+$d-outline: #8E9099 !default
+$d-outline-variant: #44474F !default
+$d-primary: #A7C8FF !default
+$d-on-primary: #00315D !default
+$d-primary-container: #1F4881 !default
+$d-on-primary-container: #D6E3FF !default
+$d-secondary-container: #3C4858 !default
+$d-on-secondary-container: #D8E3F8 !default
+$d-visited: #D6BBFB !default
+$d-error: #FFB4AB !default
+$d-code-bg: #0C0E12 !default
+$d-code-fg: #E3E2E9 !default
+$d-state: 227, 226, 233 !default

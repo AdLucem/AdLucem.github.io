@@ -2,27 +2,59 @@ body
   display: flex
   flex-direction: column
 
-article
-  flex-grow: 1
-
-body > header, body > footer
+// Top app bar
+body > header
+  flex-shrink: 0
+  min-height: $app-bar
   display: flex
   flex-wrap: wrap
   align-items: center
   justify-content: space-between
+  gap: 1rem
+  padding: 0 $gutter
 
-body > header, body > article, body > footer
-  padding: 1.5em
+// Primary tab row
+body > nav
+  flex-shrink: 0
+  display: flex
+  justify-content: center
+  gap: .5rem
+  box-shadow: inset 0 -1px 0 var(--outline-variant)
 
-article header
-  margin-bottom: 1.5em
+main
+  flex-grow: 1
 
-article header h1
-  font-size: 1.7em
-  margin: 0 0 .1em
+// One reading column, whatever the page puts in it
+main > article, main > .column
+  max-width: $measure
+  margin: 0 auto
+  padding: 2.5rem $gutter 3.5rem
 
-nav
-  margin: .5em -1.2em
+// surface-container sits very close to surface, so the footer needs a divider
+// to read as a distinct region rather than trailing whitespace.
+body > footer
+  flex-shrink: 0
+  border-top: 1px solid var(--outline-variant)
+  background: var(--surface-container)
+  color: var(--on-surface-variant)
+  min-height: 4.5rem
+  display: flex
+  flex-wrap: wrap
+  align-items: center
+  justify-content: space-between
+  gap: .75rem
+  padding: .5rem $gutter
 
-nav a
-  margin: .5em 1.2em
+body > footer p
+  margin: 0
+  font-size: .875rem
+
+// Below the tab row's comfortable width, tabs go full-bleed and share the row
+@media (max-width: 34rem)
+  body > nav
+    gap: 0
+  body > nav a
+    flex: 1
+    min-width: 0
+  main > article, main > .column
+    padding: 1.5rem 1rem 2rem
